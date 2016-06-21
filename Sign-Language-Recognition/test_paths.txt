@@ -1,0 +1,12 @@
+test_image/C.jpg	C
+test_image/K.jpg	K
+test_image/F.jpg	F
+test_image/E.jpg	E
+test_image/I.jpg	I
+test_image/M.jpg	M
+test_image/L.jpg	L
+test_image/G.jpg	G
+test_image/B.jpg	B
+test_image/A.jpg	A
+test_image/D.jpg	D
+test_image/H.jpg	H

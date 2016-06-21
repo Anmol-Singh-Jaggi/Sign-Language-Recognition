@@ -1,0 +1,60 @@
+KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
+           metric_params=None, n_neighbors=10, p=2, weights='uniform')
+
+
+             precision    recall  f1-score   support
+
+train_test_split() on 10x10 dataset:
+0.93667
+
+avg / total       0.94      0.94      0.94       900
+
+
+train_test_split() on 20x20 dataset:
+0.96444
+
+avg / total       0.97      0.96      0.96       900
+
+
+train_test_split() on 30x30 dataset:
+0.96556
+
+avg / total       0.97      0.97      0.97       900
+
+
+train_test_split() on 40x40 dataset:
+0.96333
+
+avg / total       0.97      0.96      0.96       900
+
+
+
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='l2', multi_class='ovr', penalty='l2',
+     random_state=None, tol=0.0001, verbose=0
+
+
+             precision    recall  f1-score   support
+
+train_test_split() on 10x10 dataset:
+0.91222
+
+avg / total       0.92      0.91      0.91       900
+
+
+train_test_split() on 20x20 dataset:
+0.97333
+
+avg / total       0.97      0.97      0.97       900
+
+
+train_test_split() on 30x30 dataset:
+0.98778
+
+avg / total       0.99      0.99      0.99       900
+
+
+train_test_split() on 40x40 dataset:
+0.99000
+
+avg / total       0.99      0.99      0.99       900
