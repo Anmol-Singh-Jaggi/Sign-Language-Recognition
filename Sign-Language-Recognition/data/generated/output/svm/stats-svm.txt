@@ -1,0 +1,40 @@
+Model used = 'svm'Classifier model details:
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+
+Model score:
+0.98458
+
+Classification report:
+             precision    recall  f1-score   support
+
+          A       0.98      0.92      0.95        48
+          B       0.98      0.98      0.98        52
+          C       1.00      1.00      1.00        36
+          D       1.00      1.00      1.00        18
+          E       1.00      1.00      1.00        44
+          F       0.95      1.00      0.97        38
+          G       0.98      1.00      0.99        50
+          H       1.00      0.94      0.97        18
+          I       1.00      1.00      1.00        36
+          K       1.00      1.00      1.00        45
+          L       1.00      0.92      0.96        25
+          M       0.96      0.98      0.97        52
+          N       0.96      0.98      0.97        45
+          O       1.00      1.00      1.00        49
+          P       0.98      1.00      0.99        56
+          Q       1.00      1.00      1.00        23
+          R       1.00      1.00      1.00        45
+          S       0.93      0.95      0.94        41
+          T       1.00      1.00      1.00        34
+          U       0.96      0.96      0.96        28
+          V       1.00      1.00      1.00        19
+          W       1.00      1.00      1.00        17
+          X       1.00      0.97      0.99        40
+          Y       1.00      1.00      1.00        49
+
+avg / total       0.98      0.98      0.98       908
+
+
