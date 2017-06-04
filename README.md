@@ -3,7 +3,7 @@
 Recognize [American Sign Language (ASL)](https://en.wikipedia.org/wiki/American_Sign_Language) using Machine Learning.  
 Currently, the following algorithms are supported:
  - [K-Nearest-Neighbours](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm)
- - [Logistic Regression](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm)
+ - [Logistic Regression](https://en.wikipedia.org/wiki/Logistic_regression)
  - [Support Vector Machines](https://en.wikipedia.org/wiki/Support_vector_machine)
 
 The training images were retrieved from a video, filmed at `640x480` resolution using a mobile camera.
