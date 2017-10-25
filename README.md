@@ -13,6 +13,7 @@ The training images were retrieved from a video, filmed at `640x480` resolution 
  - [**Scikit-learn**](http://scikit-learn.org/) 0.18.1, for machine-learning algorithms.
 
 **Usage:**
+
 For training a dataset of your own, do the following steps:  
  1. Put all the training and testing images in a directory and update their paths in the config file *`code/common/config.py`*. Optionally, you can generate the images in real-time from webcam - `capture_from_camera.py`.
  2. Generate image-vs-label mapping fsor all the training images - `generate_images_labels.py train`.
