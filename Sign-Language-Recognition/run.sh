@@ -17,7 +17,7 @@ printf "%s\n" "----- Transforming images... -----"
 ./transform_images.py > "${logs_dir_path}/transform_images.log" 2>&1
 printf "\n%s\n\n" "----- Done! -----"
 
-model_name="knn"
+model_name="svm"
 
 printf "%s\n" "----- Building model... -----"
 ./train_model.py "${model_name}"
