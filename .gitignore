@@ -27,3 +27,4 @@ var/
 *.egg
 
 logs/
+*/code/env
