@@ -23,15 +23,18 @@ For training a dataset of your own, do the following steps:
  4. Train the model - `python train_model.py <model-name>`. Model names can be `svm`/`knn`/`logistic`.
  6. Generate image-vs-label mapping for all the test images - `python generate_images_labels.py test`.
  7. Test the model - `python predict_from_file.py <model-name>`.  
-    Optionally, you can test the model on a live video stream from a webcam - `python predict_from_camera.py`.
+    Optionally, you can test the model on a live video stream from a webcam - `python predict_from_camera.py`.  
+    (If recording, then make sure to have the same background and hand alignment as in the training images.)
 
 All the python commands above have to be executed from the `code/` directory.  
 The above workflow can be executed using *`run.sh`*.
 
-However, if you wish not to use your own dataset, you can skip the above steps and use the pre-trained models trained using [this dataset](https://drive.google.com/drive/folders/0Bw239KLrN7zoNkU5elZMRkc4TU0?usp=sharing):
+However, if you wish not to use your own dataset, you can skip the above steps and use the pre-trained models trained using [this dataset](https://drive.google.com/drive/folders/0Bw239KLrN7zoNkU5elZMRkc4TU0?usp=sharing), we can directly use the pre-generated model files located at `data/generated/`:
 
- 1. Download and replace the contents of the directory `data/generated` from [here](https://drive.google.com/drive/folders/0Bw239KLrN7zoelVsMVU5SnEwa0k?usp=sharing). It contains the serialized model files, the transformed images as well as the image-vs-label mapping files.
- 2. Test the model - `python predict_from_file.py <model-name>`.
+      python predict_from_file.py <model-name>.
+
+Note that the pre-generated model files do not contain the file for `knn` due to its large size.  
+If you want to use `knn`, then download it separately from [here](https://drive.google.com/drive/folders/0Bw239KLrN7zoelVsMVU5SnEwa0k?usp=sharing) and place it in `data/generated/output/knn/`.
 
 The above workflow can be executed using *`run_quick.sh`*.
 
