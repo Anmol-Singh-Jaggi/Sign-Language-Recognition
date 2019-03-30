@@ -31,7 +31,7 @@ The above workflow can be executed using *`run.sh`*.
 
 However, if you wish not to use your own dataset, you can skip the above steps and use the pre-trained models trained using [this dataset](https://drive.google.com/drive/folders/0Bw239KLrN7zoNkU5elZMRkc4TU0?usp=sharing), we can directly use the pre-generated model files located at `data/generated/`:
 
-      python predict_from_file.py <model-name>.
+      python predict_from_file.py <model-name>
 
 Note that the pre-generated model files do not contain the file for `knn` due to its large size.  
 If you want to use `knn`, then download it separately from [here](https://drive.google.com/drive/folders/0Bw239KLrN7zoelVsMVU5SnEwa0k?usp=sharing) and place it in `data/generated/output/knn/`.
