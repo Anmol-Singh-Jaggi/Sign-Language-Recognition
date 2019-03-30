@@ -1,40 +1,42 @@
 Model used = 'logistic'Classifier model details:
 LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
-          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
-          penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
-          verbose=0, warm_start=False)
+          intercept_scaling=1, max_iter=100, multi_class='warn',
+          n_jobs=None, penalty='l2', random_state=None, solver='warn',
+          tol=0.0001, verbose=0, warm_start=False)
 
 Model score:
-0.98128
+0.98551
 
 Classification report:
-             precision    recall  f1-score   support
+              precision    recall  f1-score   support
 
-          A       1.00      0.93      0.96        44
-          B       0.98      1.00      0.99        44
-          C       1.00      1.00      1.00        55
-          D       1.00      1.00      1.00        21
-          E       0.96      1.00      0.98        52
-          F       1.00      1.00      1.00        39
-          G       0.98      0.96      0.97        45
-          H       0.90      1.00      0.95        19
-          I       1.00      1.00      1.00        33
-          K       1.00      1.00      1.00        47
-          L       1.00      1.00      1.00        37
-          M       0.98      1.00      0.99        40
-          N       0.92      0.98      0.95        45
-          O       1.00      0.98      0.99        45
-          P       1.00      1.00      1.00        58
-          Q       1.00      1.00      1.00        12
-          R       1.00      1.00      1.00        26
-          S       0.96      0.98      0.97        48
-          T       1.00      0.98      0.99        46
-          U       0.84      1.00      0.91        16
-          V       1.00      0.86      0.93        22
-          W       1.00      0.96      0.98        25
-          X       0.98      1.00      0.99        45
-          Y       1.00      0.91      0.95        44
+           A       1.00      0.98      0.99        43
+           B       0.98      0.98      0.98        41
+           C       1.00      1.00      1.00        55
+           D       1.00      1.00      1.00        24
+           E       0.96      1.00      0.98        55
+           F       0.91      0.97      0.94        33
+           G       1.00      0.97      0.98        59
+           H       0.87      1.00      0.93        20
+           I       1.00      1.00      1.00        28
+           K       1.00      1.00      1.00        63
+           L       1.00      0.91      0.95        23
+           M       1.00      0.98      0.99        48
+           N       0.98      0.96      0.97        46
+           O       1.00      1.00      1.00        41
+           P       1.00      0.98      0.99        55
+           Q       1.00      1.00      1.00        18
+           R       1.00      1.00      1.00        27
+           S       1.00      1.00      1.00        38
+           T       0.97      0.97      0.97        35
+           U       1.00      1.00      1.00        21
+           V       1.00      1.00      1.00        18
+           W       0.95      0.95      0.95        19
+           X       0.98      1.00      0.99        42
+           Y       1.00      1.00      1.00        45
 
-avg / total       0.98      0.98      0.98       908
+   micro avg       0.99      0.99      0.99       897
+   macro avg       0.98      0.98      0.98       897
+weighted avg       0.99      0.99      0.99       897
 
 

@@ -1,32 +1,46 @@
-#!/usr/bin/env bash
-
+# Activate virtual environment
+#pipenv shell
 cd code
-
-# Activates the Anaconda virtual environment on my system.
-# You would probably want to comment this line.
-source env/bin/activate ./env
 
 logs_dir_path="./logs"
 mkdir -p "${logs_dir_path}"
 
+# Modify this as per your need.
+export LOGLEVEL=INFO
+export SHOW_PROGRESS_BAR=True
+
 printf "%s\n" "----- Generating training image labels... -----"
-./generate_images_labels.py train
+script_name="generate_images_labels"
+log_path="${logs_dir_path}/${script_name}.log"
+python "${script_name}.py" train 2>&1 | tee "${log_path}"
 printf "\n%s\n\n" "----- Done! -----"
 
 printf "%s\n" "----- Transforming images... -----"
-./transform_images.py > "${logs_dir_path}/transform_images.log" 2>&1
+# It is normal to get errors on some of the images.
+# Can turn off the progress bar inside
+script_name="transform_images"
+log_path="${logs_dir_path}/${script_name}.log"
+python "${script_name}.py" 2>&1 | tee "${log_path}"
 printf "\n%s\n\n" "----- Done! -----"
 
-model_name="svm"
+# Can be "svm"/"knn"/"logistic"
+model_name="logistic"
 
 printf "%s\n" "----- Building model... -----"
-./train_model.py "${model_name}"
+script_name="train_model"
+log_path="${logs_dir_path}/${script_name}.log"
+python "${script_name}.py" "${model_name}" train 2>&1 | tee "${log_path}"
 printf "\n%s\n\n" "----- Done! -----"
 
 printf "%s\n" "----- Generating testing image labels... -----"
-./generate_images_labels.py test
+script_name="generate_images_labels"
+log_path="${logs_dir_path}/${script_name}.log"
+python "${script_name}.py" test train 2>&1 | tee "${log_path}"
 printf "\n%s\n\n" "----- Done! -----"
 
 printf "%s\n" "----- Predicting from file... -----"
-./predict_from_file.py "${model_name}" > "${logs_dir_path}/predict_from_file.log" 2>&1
+# It is normal to get errors on some of the images.
+script_name="predict_from_file"
+log_path="${logs_dir_path}/${script_name}.log"
+python "${script_name}.py" "${model_name}" train 2>&1 | tee "${log_path}"
 printf "\n%s\n\n" "----- Done! -----"

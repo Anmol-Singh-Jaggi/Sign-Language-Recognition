@@ -1,4 +1,3 @@
-#!/usr/bin/env python2
 import os
 
 
@@ -17,6 +16,8 @@ def merge_paths(key, path):
 
 
 def populate_config():
+    # Configure these variables as per your needs
+
     add_config('data_root_path', "../data")
 
     add_config('training_images_dir_path', merge_paths(

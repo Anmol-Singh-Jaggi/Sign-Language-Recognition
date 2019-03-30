@@ -1,16 +1,16 @@
-#!/usr/bin/env bash
-
+# Activate virtual environment
+#pipenv shell
 cd code
-
-# Activates the Anaconda virtual environment on my system.
-# You would probably want to comment this line.
-source env/bin/activate ./env
 
 logs_dir_path="./logs"
 mkdir -p "${logs_dir_path}"
 
+# Modify this as per your need.
+export LOGLEVEL=INFO
+
+# Can be "svm"/"knn"/"logistic"
 model_name="svm"
 
 printf "%s\n" "----- Predicting from file... -----"
-./predict_from_file.py "${model_name}" > "${logs_dir_path}/predict_from_file.log" 2>&1
+python predict_from_file.py "${model_name}" 2>&1 | tee "${logs_dir_path}/predict_from_file.log" 
 printf "\n%s\n\n" "----- Done! -----"

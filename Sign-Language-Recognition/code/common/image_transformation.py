@@ -1,20 +1,29 @@
-#!/usr/bin/env python2
 import numpy as np
 import cv2
+import logging
+import os
+
+
+logging_format = '[%(asctime)s||%(name)s||%(levelname)s]::%(message)s'
+logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"),
+                    format=logging_format,
+                    datefmt='%Y-%m-%d %H:%M:%S',)
+logger = logging.getLogger(__file__)
 
 
 def resize_image(frame, new_size):
-    print("Resizing image to {}...".format(new_size))
+    logger.debug("Resizing image to {}...".format(new_size))
     frame = cv2.resize(frame, (new_size, new_size))
-    print("Done!")
+    logger.debug("Done!")
     return frame
 
 
 def make_background_black(frame):
     """
-    Makes everything apart from the main object of interest to be black in color.
+    Makes everything apart from the main object of interest to be
+    black in color.
     """
-    print("Making background black...")
+    logger.debug("Making background black...")
 
     # Convert from RGB to HSV
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
@@ -44,7 +53,7 @@ def make_background_black(frame):
     frame = cv2.addWeighted(frame, 1.5, frame_skin, -0.5, 0)
     frame_skin = cv2.bitwise_and(frame, frame, mask=skin_mask)
 
-    print("Done!")
+    logger.debug("Done!")
     return frame_skin
 
 
@@ -52,7 +61,7 @@ def make_skin_white(frame):
     """
     Makes the skin color white.
     """
-    print("Making skin white...")
+    logger.debug("Making skin white...")
 
     height, width = frame.shape[:2]
 
@@ -64,8 +73,8 @@ def make_skin_white(frame):
     frame = cv2.GaussianBlur(frame, (5, 5), 0)
 
     threshold = 1
-    for i in xrange(height):
-        for j in xrange(width):
+    for i in range(height):
+        for j in range(width):
             if frame[i][j] > threshold:
                 # Setting the skin tone to be white.
                 frame[i][j] = 255
@@ -73,7 +82,7 @@ def make_skin_white(frame):
                 # Setting everything else to be black.
                 frame[i][j] = 0
 
-    print("Done!")
+    logger.debug("Done!")
     return frame
 
 
@@ -81,13 +90,13 @@ def remove_arm(frame):
     """
     Removes the human arm portion from the image.
     """
-    print("Removing arm...")
+    logger.debug("Removing arm...")
 
     # Cropping 15 pixels from the bottom.
     height, width = frame.shape[:2]
     frame = frame[:height - 15, :]
 
-    print("Done!")
+    logger.debug("Done!")
     return frame
 
 
@@ -104,7 +113,8 @@ def find_largest_contour_index(contours):
 
     contour_iterator = 1
     while contour_iterator < len(contours):
-        if cv2.contourArea(contours[contour_iterator]) > cv2.contourArea(contours[largest_contour_index]):
+        if cv2.contourArea(contours[contour_iterator]) > cv2.contourArea(
+           contours[largest_contour_index]):
             largest_contour_index = contour_iterator
         contour_iterator += 1
 
@@ -115,7 +125,7 @@ def draw_contours(frame):
     """
     Draws a contour around white color.
     """
-    print("Drawing contour around white color...")
+    logger.debug("Drawing contour around white color...")
 
     # 'contours' is a list of contours found.
     contours, _ = cv2.findContours(
@@ -132,7 +142,7 @@ def draw_contours(frame):
     contour_dimensions = cv2.boundingRect(contours[largest_contour_index])
     # cv2.rectangle(sign_image,(x,y),(x+w,y+h),(255,255,255),0,8)
 
-    print("Done!")
+    logger.debug("Done!")
     return (frame, contour_dimensions)
 
 
@@ -140,25 +150,28 @@ def centre_frame(frame, contour_dimensions):
     """
     Centre the image in its contour perimeter.
     """
-    print("Centering the image...")
+    logger.debug("Centering the image...")
 
-    contour_perimeter_x, contour_perimeter_y, contour_perimeter_width, contour_perimeter_height = contour_dimensions
+    contour_perimeter_x, contour_perimeter_y, contour_perimeter_width,\
+        contour_perimeter_height = contour_dimensions
     square_side = max(contour_perimeter_x, contour_perimeter_height) - 1
     height_half = (contour_perimeter_y + contour_perimeter_y +
-                   contour_perimeter_height) / 2
+                   contour_perimeter_height) // 2
     width_half = (contour_perimeter_x + contour_perimeter_x +
-                  contour_perimeter_width) / 2
+                  contour_perimeter_width) // 2
     height_min, height_max = height_half - \
-        square_side / 2, height_half + square_side / 2
-    width_min, width_max = width_half - square_side / 2, width_half + square_side / 2
+        square_side // 2, height_half + square_side // 2
+    width_min, width_max = width_half - square_side // 2,\
+        width_half + square_side // 2
 
-    if (height_min >= 0 and height_min < height_max and width_min >= 0 and width_min < width_max):
+    if (height_min >= 0 and height_min < height_max and
+            width_min >= 0 and width_min < width_max):
         frame = frame[height_min:height_max, width_min:width_max]
     else:
         log_message = "No contour found!!"
         raise Exception(log_message)
 
-    print("Done!")
+    logger.debug("Done!")
     return frame
 
 
