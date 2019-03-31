@@ -34,7 +34,7 @@ def populate_config():
         'generated_data_dir_path', 'testing_images_labels.txt'))
 
     add_config('transformed_images_path', merge_paths(
-        'generated_data_dir_path', 'transformed_images.csv'))
+        'generated_data_dir_path', 'images_transformed.csv'))
 
     add_config('output_dir_path', merge_paths(
         'generated_data_dir_path', 'output'))
