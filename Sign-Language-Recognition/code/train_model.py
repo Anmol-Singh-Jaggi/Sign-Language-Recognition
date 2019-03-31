@@ -26,13 +26,13 @@ def print_with_precision(num):
     return "%0.5f" % num
 
 
-def read_images_transformed(images_transformed_path):
+def read_transformed_images(transformed_images_path):
     logger.info("Reading the transformed images file located at path "
-                "'{}'...".format(images_transformed_path))
+                "'{}'...".format(transformed_images_path))
     images = []
     labels = []
-    with open(images_transformed_path) as images_transformed_file:
-        reader = csv.reader(images_transformed_file, delimiter=',')
+    with open(transformed_images_path) as transformed_images_file:
+        reader = csv.reader(transformed_images_file, delimiter=',')
         for line in reader:
             if not line:
                 continue
@@ -98,8 +98,8 @@ def main():
     os.makedirs(os.path.dirname(model_stats_file_path), exist_ok=True)
     print(model_stats_file_path)
     with open(model_stats_file_path, "w") as model_stats_file:
-        images_transformed_path = get_config('images_transformed_path')
-        images, labels = read_images_transformed(images_transformed_path)
+        transformed_images_path = get_config('transformed_images_path')
+        images, labels = read_transformed_images(transformed_images_path)
         classifier_model = generate_classifier(model_name)
 
         model_stats_file.write("Model used = '{}'".format(model_name))

@@ -6,15 +6,28 @@ Currently, the following algorithms are supported:
  - [Logistic Regression](https://en.wikipedia.org/wiki/Logistic_regression)
  - [Support Vector Machines](https://en.wikipedia.org/wiki/Support_vector_machine)
 
-The [training images](https://drive.google.com/drive/folders/0Bw239KLrN7zoNkU5elZMRkc4TU0?usp=sharing) were retrieved from a video, filmed at `640x480` resolution using a mobile camera.
+The [training images](https://drive.google.com/drive/folders/0Bw239KLrN7zoNkU5elZMRkc4TU0?usp=sharing) were retrieved from a video, filmed at `640x480` resolution using a smartphone camera.
 
 **Setup:**
+ - Install **`Python3`** (last tested on Python3.7).
  - Install [pipenv](https://pipenv.readthedocs.io/en/latest/).
  - In the project root directory, execute `pipenv sync`.
 
 **Usage:**
 
-For training a dataset of your own, do the following steps:  
+You can directly start classifying new images using the pre-trained models (the `.pkl` files in `data/generated/output/<model_name>/`) trained using [this dataset](https://drive.google.com/drive/folders/0Bw239KLrN7zoNkU5elZMRkc4TU0?usp=sharing):
+
+      python predict_from_file.py <model-name>
+
+Note that the pre-generated model files do not contain the file for `knn` due to its large size.  
+If you want to use `knn`, then download it separately from [here](https://drive.google.com/open?id=0Bw239KLrN7zoMWRCRjBTUUhtY1U) and place it in `data/generated/output/knn/`.  
+The models available by default are `svm` and `logistic`.
+
+The above workflow can be executed using *`run_quick.sh`*.
+
+---------------------------------------------------------
+
+However, if you wish to use your own dataset, do the following steps:  
  1. Put all the training and testing images in a directory and update their paths in the config file *`code/common/config.py`*.  
     (Or skip to use the default paths which should also work).  
     Optionally, you can generate the images in real-time from webcam - `python capture_from_camera.py`.
@@ -28,15 +41,6 @@ For training a dataset of your own, do the following steps:
 
 All the python commands above have to be executed from the `code/` directory.  
 The above workflow can be executed using *`run.sh`*.
-
-However, if you wish not to use your own dataset, you can skip the above steps and use the pre-trained models trained using [this dataset](https://drive.google.com/drive/folders/0Bw239KLrN7zoNkU5elZMRkc4TU0?usp=sharing), we can directly use the pre-generated model files located at `data/generated/`:
-
-      python predict_from_file.py <model-name>
-
-Note that the pre-generated model files do not contain the file for `knn` due to its large size.  
-If you want to use `knn`, then download it separately from [here](https://drive.google.com/open?id=0Bw239KLrN7zoMWRCRjBTUUhtY1U) and place it in `data/generated/output/knn/`.
-
-The above workflow can be executed using *`run_quick.sh`*.
 
 **To-Do:**
  - Improve the command-line-arguments input mechanism.

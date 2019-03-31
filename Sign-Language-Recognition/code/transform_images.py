@@ -38,9 +38,9 @@ def write_frame_to_file(frame, frame_label, writer):
 
 
 def main():
-    images_transformed_path = get_config('images_transformed_path')
-    os.makedirs(os.path.dirname(images_transformed_path), exist_ok=True)
-    with open(images_transformed_path, 'w') as output_file:
+    transformed_images_path = get_config('transformed_images_path')
+    os.makedirs(os.path.dirname(transformed_images_path), exist_ok=True)
+    with open(transformed_images_path, 'w') as output_file:
         writer = csv.writer(output_file, delimiter=',')
         training_images_labels_path = get_config('training_images_labels_path')
         with open(training_images_labels_path, 'r') as file:
