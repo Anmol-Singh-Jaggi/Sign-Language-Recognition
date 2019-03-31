@@ -1,5 +1,8 @@
 # Sign Language Recognition
 
+![MIT License](https://img.shields.io/badge/license-MIT-green.svg)
+[![image](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/Anmol-Singh-Jaggi)
+
 Recognize [American Sign Language (ASL)](https://en.wikipedia.org/wiki/American_Sign_Language) using Machine Learning.  
 Currently, the following algorithms are supported:
  - [K-Nearest-Neighbours](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm)
