@@ -2,6 +2,7 @@
 
 ![MIT License](https://img.shields.io/badge/license-MIT-green.svg)
 [![image](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/Anmol-Singh-Jaggi)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FAnmol-Singh-Jaggi%2FSign-Language-Recognition.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FAnmol-Singh-Jaggi%2FSign-Language-Recognition?ref=badge_shield)
 
 Recognize [American Sign Language (ASL)](https://en.wikipedia.org/wiki/American_Sign_Language) using Machine Learning.  
 Currently, the following algorithms are supported:
@@ -49,3 +50,7 @@ The above workflow can be executed using *`run.sh`*.
  - Improve the command-line-arguments input mechanism.
  - ~~Add progress bar while transforming images.~~
  - ~~Add logger.~~
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FAnmol-Singh-Jaggi%2FSign-Language-Recognition.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FAnmol-Singh-Jaggi%2FSign-Language-Recognition?ref=badge_large)
