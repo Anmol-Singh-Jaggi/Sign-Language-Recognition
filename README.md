@@ -9,7 +9,7 @@ Currently, the following algorithms are supported:
  - [Logistic Regression](https://en.wikipedia.org/wiki/Logistic_regression)
  - [Support Vector Machines](https://en.wikipedia.org/wiki/Support_vector_machine)
 
-The [training images](https://drive.google.com/drive/folders/0Bw239KLrN7zoNkU5elZMRkc4TU0?usp=sharing) were retrieved from a video, filmed at `640x480` resolution using a smartphone camera.
+The [training images](https://drive.google.com/drive/folders/0Bw239KLrN7zoNkU5elZMRkc4TU0?resourcekey=0-mkP6SVgwEJFmIYd2xotVug) were retrieved from a video, filmed at `640x480` resolution using a smartphone camera.
 
 **Setup:**
  - Install **`Python3`** (last tested on Python3.7).
@@ -18,12 +18,12 @@ The [training images](https://drive.google.com/drive/folders/0Bw239KLrN7zoNkU5el
 
 **Usage:**
 
-You can directly start classifying new images using the pre-trained models (the `.pkl` files in `data/generated/output/<model_name>/`) trained using [this dataset](https://drive.google.com/drive/folders/0Bw239KLrN7zoNkU5elZMRkc4TU0?usp=sharing):
+You can directly start classifying new images using the pre-trained models (the `.pkl` files in `data/generated/output/<model_name>/`) trained using the above dataset:
 
       python predict_from_file.py <model-name>
 
 Note that the pre-generated model files do not contain the file for `knn` due to its large size.  
-If you want to use `knn`, then download it separately from [here](https://drive.google.com/open?id=0Bw239KLrN7zoMWRCRjBTUUhtY1U) and place it in `data/generated/output/knn/`.  
+If you want to use `knn`, then download it separately from [here](https://drive.google.com/drive/folders/0Bw239KLrN7zoZ0dNZHFhdlI5ZFU?resourcekey=0-bME2qAFVHS_lKv7WgO-tLQ) and place it in `data/generated/output/knn/`.  
 The models available by default are `svm` and `logistic`.
 
 The above workflow can be executed using *`run_quick.sh`*.
